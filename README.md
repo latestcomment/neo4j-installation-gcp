@@ -164,3 +164,81 @@ Select SSH KEYS tab, and add the text in .pub file.
 > uuid=$(sudo blkid /dev/sdb | awk -F '"' '{print $2}')
 > sudo echo "UUID=$uuid /mnt/neo4j ext4 discard,defaults,nofail 0 2" | sudo tee -a /etc/fstab
 ```
+
+# Neo4j Installation
+This is the package installation (from TAR-ball), with consideration that user/IT can easily configure such custom target folders, etc.
+
+## Download Neo4j
+PS: edit the version as needed to download the latest version
+
+```
+> cd /home/neo4j
+> mkdir packages
+> cd packages
+
+> wget https://neo4j.com/customer/download/neo4j-enterprise-4.4.11-unix.tar.gz -O neo4j-enterprise-4.4.11-unix.tar.gz
+
+> wget https://github.com/neo4j-contrib/neo4j-apoc-procedures/releases/download/4.4.0.8/apoc-4.4.0.8-all.jar -O apoc-4.4.0.8-all.jar
+
+> wget https://graphdatascience.ninja/neo4j-graph-data-science-2.1.11.zip -O neo4j-graph-data-science-2.1.11.zip 
+
+> wget https://neo4j.com/artifact.php?name=neo4j-bloom-2.4.0.zip -O neo4j-bloom-2.4.0.zip
+```
+
+## Extract Package
+```
+> cd /home/neo4j/packages
+> sudo tar -xvf neo4j-enterprise-4.4.11-unix.tar.gz
+
+> sudo chown -R neo4j:neo4j neo4j-enterprise-4.4.11
+> mv neo4j-enterprise-4.4.11 ..
+```
+
+## Configuration
+
+### Standalone Configuration
+Open <neo4j_home>/conf/neo4j.conf and customize as needed
+
+```
+# Default listen address
+dbms.default_listen_address=0.0.0.0
+
+# Default advertised address
+dbms.default_advertised_address=<change-to-ip>
+
+# Directory paths
+dbms.directories.data=/mnt/neo4j/data
+dbms.directories.import=/mnt/neo4j/import
+
+# Memory config
+dbms.memory.heap.initial_size=20g
+dbms.memory.heap.max_size=20g
+dbms.memory.pagecache.size=40g
+
+# DBMS Upgrade
+dbms.allow_upgrade=true
+
+# Extensions Activation
+dbms.security.procedures.unrestricted=gds.*,apoc.*,bloom.*
+dbms.security.procedures.allowlist=gds.*,apoc.*,bloom.*
+dbms.unmanaged_extension_classes=com.neo4j.bloom.server=/bloom
+dbms.security.http_auth_allowlist=/,/browser.*,/bloom.*
+
+# APOC
+apoc.import.file.enabled=true
+apoc.export.file.enabled=true
+apoc.import.file.use_neo4j_config=true
+
+# Bloom License
+neo4j.bloom.license_file=<license-file>
+
+# GDS License
+# gds.enterprise.license_file=<license-file>
+```
+
+# Start Neo4j
+Go to <NEO4J_HOME>/bin
+and run neo4j
+```
+./neo4j start
+```
