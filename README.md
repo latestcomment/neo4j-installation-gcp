@@ -30,3 +30,16 @@ Create Firewall rule
   <img src="https://user-images.githubusercontent.com/98151352/190322009-44644829-4a83-4461-8ac6-349325575c72.png" />
 </p>
 
+4. Select instance's machine
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/98151352/190322751-e1a8aa7e-2d71-4638-bce7-2f402d6e58a1.png" />
+</p>
+
+5. Modify boot disk
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/98151352/190322857-a25ecdde-05d1-47bd-b1e0-0c46f933d5d8.png" />
+</p>
+
+
+
+
