@@ -154,13 +154,13 @@ Select SSH KEYS tab, and add the text in .pub file.
 
 ### Mount additional disk for data
 ```
-cd /
-sudo lsblk
-sudo mkfs.ext4 -m 0 -E lazy_itable_init=0,lazy_journal_init=0,discard /dev/sdb
-sudo mkdir /mnt/neo4j/
-sudo mount -o discard,defaults /dev/sdb /mnt/neo4j/
-sudo chown -R neo4j:neo4j /mnt/neo4j
-sudo cp /etc/fstab /etc/fstab.backup
-uuid=$(sudo blkid /dev/sdb | awk -F '"' '{print $2}')
-sudo echo "UUID=$uuid /mnt/neo4j ext4 discard,defaults,nofail 0 2" | sudo tee -a /etc/fstab
+> cd /
+> sudo lsblk
+> sudo mkfs.ext4 -m 0 -E lazy_itable_init=0,lazy_journal_init=0,discard /dev/sdb
+> sudo mkdir /mnt/neo4j/
+> sudo mount -o discard,defaults /dev/sdb /mnt/neo4j/
+> sudo chown -R neo4j:neo4j /mnt/neo4j
+> sudo cp /etc/fstab /etc/fstab.backup
+> uuid=$(sudo blkid /dev/sdb | awk -F '"' '{print $2}')
+> sudo echo "UUID=$uuid /mnt/neo4j ext4 discard,defaults,nofail 0 2" | sudo tee -a /etc/fstab
 ```
