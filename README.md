@@ -16,7 +16,7 @@ Create VPC
 ## Firewall Rules
 Create Firewall rule
 
-## VM
+## Compute Engine
 
 1. Create instance
 <p align="center">
@@ -59,3 +59,41 @@ in this case, Ubuntu Pro is selected for OS and Ubuntu 20.04 LTS Pro Server for 
 <p align="center">
   <img src="https://user-images.githubusercontent.com/98151352/190325034-317aa61e-358c-42f8-a820-a50e8fbb61be.png" />
 </p>
+
+
+8. Advanced options
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/98151352/190325457-18dc7196-4feb-4040-9d6d-c8d84b2a00c4.png" />
+</p>
+
+8.1. Networking
+- Input network tags from Firewall's rules
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/98151352/190325817-13c82239-0093-42eb-bdaa-bc378c6d2c0e.png" />
+</p>
+
+- Input network and subnetwork from VPC
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/98151352/190326481-fa22506e-7858-498c-9380-f35d8bbc33fb.png" />
+</p>
+
+8.2. Disks
+- Add new additional disk
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/98151352/190326770-49db3ae8-daa3-4e97-8286-65e3da321df4.png" />
+</p>
+
+- Input disk's name
+- Select disk's type and its size
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/98151352/190327009-4a41825c-7a6f-4a17-8b30-516e1a23d2af.png" />
+</p>
+
+- Select disk's mode and its deletion rule
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/98151352/190327351-322b4577-c81f-425a-a10f-900ff861354a.png" />
+</p>
+
+# Preparation
+After the instance is created, and already running. Proceed with this preparation step to set-up user, ssh-keys of the instance, and java for Neo4j.
+
