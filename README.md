@@ -97,3 +97,70 @@ in this case, Ubuntu Pro is selected for OS and Ubuntu 20.04 LTS Pro Server for 
 # Preparation
 After the instance is created, and already running. Proceed with this preparation step to set-up user, ssh-keys of the instance, and java for Neo4j.
 
+- Clink on dropdown under "connect", and select "Open in browser window"
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/98151352/190329615-f9ad5b45-7b6e-460a-aa81-c6d30c312f3d.png" />
+</p>
+
+ubuntu terminal in new window will be popped up
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/98151352/190330661-83646f49-0b0b-4486-a26b-53db19b39e5c.png" />
+</p>
+
+### Add User
+- Create Neo4j User for VM and add as sudo-er
+```
+sudo useradd -m neo4j -s /bin/bash
+sudo echo "neo4j ALL=(ALL) NOPASSWD:ALL" | sudo EDITOR='tee -a' visudo
+```
+- set password for Neo4j User
+```
+sudo passwd neo4j
+```
+- use neo4j user
+```
+su - neo4j
+```
+required to enter password
+
+### Create ssh-key
+- Generate ssh-key
+```
+ssh-keygen -t rsa -f ~/.ssh/neo4j -C neo4j -b 2048
+```
+Create ssh with username, define the name of ssh file would be.
+
+- Copy the generated ssh-key
+```
+cat ~/.ssh/neo4j.pub
+```
+copy the text on terminal, save in local as .pub file
+
+```
+cat ~/.ssh/neo4j
+```
+copy the text on terminal, save in local without extension (type of file).
+
+- Put ssh-key in .pub file to Metadata in Compute Engine tab
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/98151352/190335405-942719d6-8d29-4357-8f2c-3a85653fdbe6.png" />
+</p>
+
+Select SSH KEYS tab, and add the text in .pub file.
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/98151352/190336033-45255091-adc5-420d-a76e-f2a7779457f4.png" />
+</p>
+
+### Mount additional disk for data
+```
+cd /
+sudo lsblk
+sudo mkfs.ext4 -m 0 -E lazy_itable_init=0,lazy_journal_init=0,discard /dev/sdb
+sudo mkdir /mnt/neo4j/
+sudo mount -o discard,defaults /dev/sdb /mnt/neo4j/
+sudo chown -R neo4j:neo4j /mnt/neo4j
+sudo cp /etc/fstab /etc/fstab.backup
+uuid=$(sudo blkid /dev/sdb | awk -F '"' '{print $2}')
+sudo echo "UUID=$uuid /mnt/neo4j ext4 discard,defaults,nofail 0 2" | sudo tee -a /etc/fstab
+```
