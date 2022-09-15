@@ -37,9 +37,25 @@ Create Firewall rule
 
 5. Modify boot disk
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/98151352/190322857-a25ecdde-05d1-47bd-b1e0-0c46f933d5d8.png" />
+  <img src="https://user-images.githubusercontent.com/98151352/190323127-90db0729-f611-48a2-b338-6725b682b8fe.png" />
 </p>
 
+5.1. Select OS and its version
+in this case, Ubuntu Pro is selected for OS and Ubuntu 20.04 LTS Pro Server for its version
 
+5.2. Select boot disk type and its size
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/98151352/190323871-45fb400a-67ff-41c9-9eb0-926dda7d6e2b.png" />
+</p>
 
+5.3. Deletion Rule
+5.4. Encryption
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/98151352/190324511-ba2ca508-6292-4246-a221-37af0b632c95.png" />
+</p>
 
+6. Identity and API Access
+7. Firewall
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/98151352/190325034-317aa61e-358c-42f8-a820-a50e8fbb61be.png" />
+</p>
