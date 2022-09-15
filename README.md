@@ -19,11 +19,12 @@ Create Firewall rule
 ## VM
 
 1. Create instance
-![image](https://user-images.githubusercontent.com/98151352/190320585-f8bd1696-119c-480a-941d-5ef71ed57d6b.png)
-
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/98151352/190320585-f8bd1696-119c-480a-941d-5ef71ed57d6b.png" />
+</p>
 2. Input instance's name
 3. Select region and zone
 <p align="center">
   <img src="https://user-images.githubusercontent.com/98151352/190322009-44644829-4a83-4461-8ac6-349325575c72.png" />
 </p>
-![image](https://user-images.githubusercontent.com/98151352/190322009-44644829-4a83-4461-8ac6-349325575c72.png)
+
