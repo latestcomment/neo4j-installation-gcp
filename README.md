@@ -23,4 +23,5 @@ Create Firewall rule
 
 2. Input instance's name
 3. Select region and zone
+
 ![image](https://user-images.githubusercontent.com/98151352/190322009-44644829-4a83-4461-8ac6-349325575c72.png)
