@@ -194,6 +194,14 @@ PS: edit the version as needed to download the latest version
 > mv neo4j-enterprise-4.4.11 ..
 ```
 
+## Plugins
+Move plugins from directory packages to <NEO4J_HOME>/plugins
+
+note:
+apoc plugins would be in .jar
+gds plugins would be in .jar
+bloom plugins would be in .zip
+
 ## Configuration
 
 ### Standalone Configuration
@@ -211,9 +219,9 @@ dbms.directories.data=/mnt/neo4j/data
 dbms.directories.import=/mnt/neo4j/import
 
 # Memory config
-dbms.memory.heap.initial_size=20g
-dbms.memory.heap.max_size=20g
-dbms.memory.pagecache.size=40g
+dbms.memory.heap.initial_size=<input-size>
+dbms.memory.heap.max_size=<input-size>
+dbms.memory.pagecache.size=<input-size>
 
 # DBMS Upgrade
 dbms.allow_upgrade=true
