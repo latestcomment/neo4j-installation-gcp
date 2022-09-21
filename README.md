@@ -242,6 +242,9 @@ neo4j.bloom.license_file=<license-file>
 
 # GDS License
 # gds.enterprise.license_file=<license-file>
+
+# transaction
+# dbms.tx_log.rotation.retention_policy=10 files
 ```
 
 # Start Neo4j
